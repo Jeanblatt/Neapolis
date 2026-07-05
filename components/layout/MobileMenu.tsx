@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Button from "@/components/ui/Button";
-import { NAV_LINKS } from "@/lib/constants";
+import { PRIMARY_NAV_LINKS } from "@/lib/constants";
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ export default function MobileMenu() {
         aria-controls="mobile-menu"
         className="flex h-10 w-10 items-center justify-center rounded-lg text-foreground"
       >
-        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        {isOpen ? <X aria-hidden="true" className="h-6 w-6" /> : <Menu aria-hidden="true" className="h-6 w-6" />}
       </button>
 
       {isOpen && (
@@ -28,7 +28,7 @@ export default function MobileMenu() {
           className="absolute inset-x-0 top-16 border-b border-black/10 bg-background px-4 py-4 shadow-lg dark:border-white/10"
         >
           <nav className="flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
+            {PRIMARY_NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

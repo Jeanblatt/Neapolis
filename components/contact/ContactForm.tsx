@@ -107,7 +107,7 @@ export default function ContactForm() {
         />
       </div>
 
-      <Button type="submit" size="lg" className="mt-2">
+      <Button type="submit" size="lg" className="mt-2" disabled={status === "submitting"}>
         {status === "submitting" ? "Envoi en cours..." : "Envoyer le message"}
       </Button>
     </form>

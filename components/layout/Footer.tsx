@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Container from "@/components/ui/Container";
+import CurrentYear from "@/components/layout/CurrentYear";
 import { CONTACT_INFO, NAV_LINKS, OPENING_HOURS, SITE_NAME } from "@/lib/constants";
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="border-t border-black/10 dark:border-white/10">
       <Container>
@@ -62,7 +61,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-black/10 py-6 text-center text-sm text-zinc-600 dark:border-white/10 dark:text-zinc-400">
-          © {year} {SITE_NAME}. Tous droits réservés.
+          © <CurrentYear /> {SITE_NAME}. Tous droits réservés.
         </div>
       </Container>
     </footer>

@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Button from "@/components/ui/Button";
-import { getWhatsAppLink } from "@/lib/whatsapp";
+import { getWhatsAppLink, whatsappMessages } from "@/lib/whatsapp";
 import { submitQuoteRequest } from "@/services/quote.service";
 import type { QuoteRequest } from "@/types";
 
@@ -28,7 +28,7 @@ export default function QuoteForm() {
   }
 
   if (status === "success") {
-    const whatsappMessage = `Bonjour, je souhaite un devis pour : ${data.need}. ${data.message}`.trim();
+    const whatsappMessage = whatsappMessages.quoteFollowUp(data.need, data.message);
 
     return (
       <div
@@ -115,7 +115,7 @@ export default function QuoteForm() {
         />
       </div>
 
-      <Button type="submit" size="lg" className="mt-2">
+      <Button type="submit" size="lg" className="mt-2" disabled={status === "submitting"}>
         {status === "submitting" ? "Envoi en cours..." : "Envoyer la demande"}
       </Button>
     </form>

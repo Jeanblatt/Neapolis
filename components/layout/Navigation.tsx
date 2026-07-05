@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { NAV_LINKS } from "@/lib/constants";
+import { PRIMARY_NAV_LINKS } from "@/lib/constants";
 
 export default function Navigation() {
   return (
     <nav className="hidden items-center gap-6 text-sm md:flex">
-      {NAV_LINKS.map((link) => (
+      {PRIMARY_NAV_LINKS.map((link) => (
         <Link
           key={link.href}
           href={link.href}

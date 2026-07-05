@@ -7,7 +7,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { productJsonLd } from "@/lib/json-ld";
 import { STOCK_STATUS_LABELS, STOCK_STATUS_STYLES } from "@/lib/product-display";
 import { buildMetadata } from "@/lib/seo";
-import { getWhatsAppLink } from "@/lib/whatsapp";
+import { getWhatsAppLink, whatsappMessages } from "@/lib/whatsapp";
 import { getProductById, getProducts } from "@/services/dataService";
 
 export async function generateStaticParams() {
@@ -42,7 +42,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     notFound();
   }
 
-  const whatsappMessage = `Bonjour, je suis intéressé par le produit : ${product.name}.`;
+  const whatsappMessage = whatsappMessages.product(product.name);
 
   return (
     <Container>

@@ -10,7 +10,7 @@ export default function ContactCtaSection() {
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             Un projet informatique en tête ?
           </h2>
-          <p className="max-w-xl text-primary-light/90 text-white/80">
+          <p className="max-w-xl text-white/80">
             Contactez-nous pour un conseil personnalisé ou une demande de devis rapide.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

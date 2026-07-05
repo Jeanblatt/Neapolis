@@ -1,12 +1,12 @@
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { ICON_MAP } from "@/components/ui/icons";
-import { getWhatsAppLink } from "@/lib/whatsapp";
+import { getWhatsAppLink, whatsappMessages } from "@/lib/whatsapp";
 import type { ServiceItem } from "@/types";
 
 export default function ServiceCard({ service }: { service: ServiceItem }) {
   const Icon = ICON_MAP[service.icon];
-  const whatsappMessage = `Bonjour, je souhaite demander le service : ${service.title}.`;
+  const whatsappMessage = whatsappMessages.service(service.title);
 
   return (
     <Card className="flex flex-col">

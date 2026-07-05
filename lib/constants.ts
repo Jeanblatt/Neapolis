@@ -3,14 +3,16 @@ export const SITE_NAME = "Néapolis";
 export const SITE_DESCRIPTION =
   "Néapolis, votre boutique informatique en Tunisie : vente de matériel, services et conseils.";
 
-export const NAV_LINKS = [
+export const PRIMARY_NAV_LINKS = [
   { label: "Accueil", href: "/" },
   { label: "Produits", href: "/produits" },
   { label: "Services", href: "/services" },
   { label: "À propos", href: "/a-propos" },
   { label: "Contact", href: "/contact" },
-  { label: "Demande de devis", href: "/devis" },
 ];
+
+// Utilisé au pied de page : inclut le devis, déjà mis en avant ailleurs par un bouton dédié.
+export const NAV_LINKS = [...PRIMARY_NAV_LINKS, { label: "Demande de devis", href: "/devis" }];
 
 export const CONTACT_INFO = {
   phone: "+216 98 331 289",

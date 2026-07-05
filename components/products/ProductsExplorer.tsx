@@ -43,9 +43,10 @@ export default function ProductsExplorer({
     <div>
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="relative flex-1 sm:max-w-sm">
-          <Search className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+          <Search aria-hidden="true" className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-zinc-400" />
           <input
             type="search"
+            aria-label="Rechercher un produit"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Rechercher un produit..."
@@ -55,6 +56,7 @@ export default function ProductsExplorer({
 
         <select
           value={sort}
+          aria-label="Trier les produits"
           onChange={(event) => setSort(event.target.value as SortOption)}
           className="rounded-full border border-black/10 bg-white px-4 py-2.5 text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary dark:border-white/10 dark:bg-zinc-900"
         >
@@ -67,6 +69,7 @@ export default function ProductsExplorer({
         <button
           type="button"
           onClick={() => setCategory("all")}
+          aria-pressed={category === "all"}
           className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
             category === "all"
               ? "bg-primary text-white"
@@ -80,6 +83,7 @@ export default function ProductsExplorer({
             key={c.id}
             type="button"
             onClick={() => setCategory(c.name)}
+            aria-pressed={category === c.name}
             className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
               category === c.name
                 ? "bg-primary text-white"
