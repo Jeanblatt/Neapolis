@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Néapolis
 
-## Getting Started
+Site vitrine e-commerce pour Néapolis, boutique informatique en Tunisie (Next.js App Router, React, TypeScript, Tailwind CSS).
 
-First, run the development server:
+## Prérequis
+
+- Node.js 20+
+- npm
+
+## Développement
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script | Description |
+| --- | --- |
+| `npm run dev` | Serveur de développement |
+| `npm run build` | Build de production |
+| `npm run start` | Démarre le serveur de production (après `build`) |
+| `npm run lint` | Vérification ESLint |
+| `npm run type-check` | Vérification TypeScript (`tsc --noEmit`) |
 
-## Learn More
+## Variables d'environnement
 
-To learn more about Next.js, take a look at the following resources:
+Copier `.env.example` en `.env.local` et adapter :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Description |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | URL publique du site (utilisée pour les métadonnées SEO, le sitemap et les canonicals) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture
 
-## Deploy on Vercel
+- `app/` — pages et routes (App Router)
+- `components/` — composants React, organisés par domaine (`ui`, `layout`, `home`, `products`, `services`, `devis`, `contact`, `seo`)
+- `services/` — couche de données et d'envoi de formulaires ; `services/dataService.ts` est le point d'entrée unique pour les produits, catégories et services (données mock, prêtes à être remplacées par une vraie source — ex. Google Sheets — sans changer les composants UI)
+- `types/` — types TypeScript partagés
+- `lib/` — constantes, helpers (WhatsApp, SEO, affichage produit)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Déploiement (hébergement Node.js)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Le projet est configuré en `output: "standalone"` (voir `next.config.ts`), adapté à un hébergement Node.js classique (VPS, Topnet, etc.) sans dépendre de Vercel.
+
+```bash
+npm run build
+cp -r public .next/standalone/
+cp -r .next/static .next/standalone/.next/
+node .next/standalone/server.js
+```
+
+Le serveur écoute par défaut sur le port 3000 ; définir `PORT` et `HOSTNAME` si besoin :
+
+```bash
+PORT=8080 HOSTNAME=0.0.0.0 node .next/standalone/server.js
+```
+
+Avant la mise en ligne, vérifier :
+
+- `npm run lint`, `npm run type-check`, `npm run build` sans erreur.
+- `NEXT_PUBLIC_SITE_URL` défini avec le vrai nom de domaine.
+- Le numéro WhatsApp et les coordonnées dans `lib/constants.ts`.
