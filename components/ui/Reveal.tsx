@@ -1,12 +1,13 @@
 "use client";
 
-import type { CSSProperties, ReactNode } from "react";
-import { useInView } from "@/lib/useInView";
+import { motion, useReducedMotion } from "framer-motion";
+import type { ReactNode } from "react";
 
 /**
- * Fade + slide-up on scroll entry. Base opacity/transform only apply once JS
- * has decided the element is (or isn't yet) in view; a `<noscript>` rule in
- * the root layout forces full visibility when JavaScript is unavailable.
+ * Fade + slide-up + léger scale à l'entrée dans le viewport (Framer Motion).
+ * `delay` est en millisecondes pour rester cohérent avec les appels existants.
+ * Un `<noscript>` dans le layout racine (classe `.reveal`) force la visibilité
+ * sans JavaScript ; `prefers-reduced-motion` désactive simplement l'animation.
  */
 export default function Reveal({
   children,
@@ -17,18 +18,21 @@ export default function Reveal({
   className?: string;
   delay?: number;
 }) {
-  const { ref, inView } = useInView<HTMLDivElement>();
-  const style: CSSProperties | undefined = delay ? { transitionDelay: `${delay}ms` } : undefined;
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
-    <div
-      ref={ref}
-      style={style}
-      className={`reveal motion-safe:transition motion-safe:duration-700 motion-safe:ease-out ${
-        inView ? "opacity-100 motion-safe:translate-y-0" : "opacity-0 motion-safe:translate-y-6"
-      } ${className}`}
+    <motion.div
+      className={`reveal ${className}`}
+      initial={{ opacity: 0, y: 24, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.7, delay: delay / 1000, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

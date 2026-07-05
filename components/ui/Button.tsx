@@ -26,12 +26,12 @@ const baseClasses =
 // tone="inverse" est destiné aux boutons posés sur un fond `bg-primary` (ex. bandeau CTA).
 const toneVariantClasses: Record<ButtonTone, Record<ButtonVariant, string>> = {
   default: {
-    primary: "bg-primary text-white shadow-premium hover:bg-primary-dark hover:shadow-premium-lg",
+    primary: "bg-primary text-white shadow-premium hover:bg-primary-dark hover:shadow-glow",
     secondary:
       "border border-black/10 text-foreground hover:border-black/20 hover:bg-black/5 dark:border-white/15 dark:hover:border-white/25 dark:hover:bg-white/10",
   },
   inverse: {
-    primary: "bg-white text-primary shadow-premium hover:bg-white/90 hover:shadow-premium-lg",
+    primary: "bg-white text-primary shadow-premium hover:bg-white/90 hover:shadow-glow",
     secondary: "border border-white/30 text-white hover:border-white/50 hover:bg-white/10",
   },
 };

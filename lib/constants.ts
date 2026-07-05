@@ -31,6 +31,15 @@ export const OPENING_HOURS = [
   { days: "Dimanche", hours: "Fermé" },
 ];
 
+// Emplacements réservés pour de futurs comptes réseaux sociaux. Affichés en
+// pied de page à titre de structure préparée uniquement — pas de `href` tant
+// qu'il n'y a pas de vrais comptes à lier (pas de faux liens).
+export const SOCIAL_LINKS: { label: string }[] = [
+  { label: "Facebook" },
+  { label: "Instagram" },
+  { label: "LinkedIn" },
+];
+
 export const WHY_NEAPOLIS_FEATURES = [
   {
     icon: "shield-check",

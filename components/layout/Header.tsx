@@ -14,8 +14,10 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 border-b bg-background/80 backdrop-blur-md transition-shadow duration-300 ${
-        scrolled ? "border-black/10 shadow-premium dark:border-white/10" : "border-transparent"
+      className={`sticky top-0 z-40 border-b bg-background/80 transition-[backdrop-filter,box-shadow,border-color] duration-300 ${
+        scrolled
+          ? "border-black/10 shadow-premium backdrop-blur-lg dark:border-white/10"
+          : "border-transparent backdrop-blur-md"
       }`}
     >
       <Container>

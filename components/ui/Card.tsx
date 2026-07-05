@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 export default function Card({
@@ -8,10 +11,13 @@ export default function Card({
   className?: string;
 }) {
   return (
-    <div
-      className={`rounded-2xl border border-black/10 bg-white p-6 shadow-premium transition duration-300 hover:-translate-y-1 hover:shadow-premium-lg dark:border-white/10 dark:bg-zinc-900 ${className}`}
+    <motion.div
+      className={`rounded-2xl border border-black/10 bg-white p-6 shadow-premium transition-shadow duration-300 hover:shadow-glow dark:border-white/10 dark:bg-zinc-900 ${className}`}
+      style={{ transformPerspective: 800 }}
+      whileHover={{ y: -6, rotateX: 2, rotateY: -2, scale: 1.01 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

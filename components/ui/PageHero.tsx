@@ -22,9 +22,11 @@ export default function PageHero({
         <div className={`py-16 sm:py-20 ${isCentered ? "text-center" : ""}`}>
           <div className={isCentered ? "mx-auto max-w-2xl" : "max-w-2xl"}>
             {eyebrow && (
-              <p className="text-sm font-semibold tracking-wide text-primary uppercase">{eyebrow}</p>
+              <p className="text-sm font-semibold tracking-widest text-primary uppercase">{eyebrow}</p>
             )}
-            <h1 className={`font-semibold tracking-tight text-balance sm:text-5xl ${eyebrow ? "mt-2" : ""} text-4xl`}>
+            <h1
+              className={`text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl ${eyebrow ? "mt-2" : ""}`}
+            >
               {title}
             </h1>
             {description && (

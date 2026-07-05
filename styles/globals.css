@@ -46,9 +46,43 @@ body {
     0 24px 48px -12px rgba(15, 23, 42, 0.18);
 }
 
-/* Fond en dégradé subtil ("mesh") pour les sections d'accroche, sans image. */
+/* Variante teintée de shadow-premium-lg pour un léger "glow" bleu au survol des cartes. */
+@utility shadow-glow {
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 20px 40px -12px color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+
+/* Fond en dégradé subtil ("mesh") pour les sections claires, sans image. */
 @utility bg-mesh {
   background-image:
     radial-gradient(60% 50% at 15% 10%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent),
-    radial-gradient(50% 40% at 85% 0%, color-mix(in srgb, var(--color-primary-light) 20%, transparent), transparent);
+    radial-gradient(50% 40% at 85% 0%, color-mix(in srgb, var(--color-primary-light) 20%, transparent), transparent),
+    radial-gradient(40% 35% at 100% 60%, color-mix(in srgb, #22d3ee 14%, transparent), transparent);
+}
+
+/* Fond sombre (anthracite → bleu profond) avec halos électriques, pour le Hero et le bandeau CTA. */
+@utility bg-mesh-dark {
+  background-color: #050914;
+  background-image:
+    radial-gradient(55% 45% at 20% 15%, rgba(37, 99, 235, 0.35), transparent),
+    radial-gradient(45% 40% at 85% 10%, rgba(34, 211, 238, 0.18), transparent),
+    radial-gradient(60% 50% at 50% 100%, rgba(29, 78, 216, 0.25), transparent);
+}
+
+/* Grain très léger pour éviter l'effet dégradé "plat" sur les fonds sombres. */
+@utility bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Balayage lumineux très discret sur les emplacements d'image en attente d'une vraie photo. */
+@utility animate-shimmer {
+  animation: shimmer 2.5s infinite;
 }
