@@ -13,7 +13,7 @@ export default function GlobalError({
     <html lang="fr">
       <body className="flex min-h-screen flex-col items-center justify-center gap-6 bg-background px-4 text-center text-foreground">
         <p className="text-sm font-semibold tracking-wide text-primary uppercase">Erreur critique</p>
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Une erreur est survenue</h1>
+        <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Une erreur est survenue</h1>
         <p className="max-w-md text-zinc-600 dark:text-zinc-400">
           Le site a rencontré un problème inattendu. Merci de réessayer dans un instant.
         </p>

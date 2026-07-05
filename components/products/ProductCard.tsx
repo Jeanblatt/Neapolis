@@ -1,16 +1,19 @@
-import { ICON_MAP } from "@/components/ui/icons";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
-import { CATEGORY_ICONS, STOCK_STATUS_LABELS, STOCK_STATUS_STYLES } from "@/lib/product-display";
+import ProductImage from "@/components/products/ProductImage";
+import { STOCK_STATUS_LABELS, STOCK_STATUS_STYLES } from "@/lib/product-display";
 import type { Product } from "@/types";
 
 export default function ProductCard({ product }: { product: Product }) {
-  const Icon = ICON_MAP[CATEGORY_ICONS[product.category] ?? "laptop"];
-
   return (
-    <Card className="flex flex-col p-0 overflow-hidden">
-      <div className="flex aspect-4/3 items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/5">
-        {Icon && <Icon className="h-12 w-12 text-primary/60" />}
+    <Card className="group flex h-full flex-col p-0 overflow-hidden">
+      <div className="relative flex aspect-4/3 items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/5">
+        <ProductImage
+          src={product.images[0]}
+          alt={product.name}
+          category={product.category}
+          className="transition-transform duration-500 group-hover:scale-110"
+        />
       </div>
       <div className="flex flex-1 flex-col gap-3 p-6">
         <div className="flex items-center justify-between gap-2">

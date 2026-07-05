@@ -47,6 +47,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <noscript>
+          <style>{".reveal{opacity:1 !important;transform:none !important;}"}</style>
+        </noscript>
         <JsonLd data={organizationJsonLd()} />
         <SkipLink />
         <Header />

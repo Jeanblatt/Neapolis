@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
-import PageHeader from "@/components/ui/PageHeader";
+import PageHero from "@/components/ui/PageHero";
 import QuoteForm from "@/components/devis/QuoteForm";
 import { buildMetadata } from "@/lib/seo";
 
@@ -12,14 +12,17 @@ export const metadata: Metadata = buildMetadata({
 
 export default function DevisPage() {
   return (
-    <Container>
-      <PageHeader
+    <>
+      <PageHero
+        eyebrow="Devis gratuit"
         title="Demande de devis"
         description="Décrivez votre besoin, nous revenons vers vous rapidement."
       />
-      <div className="max-w-2xl py-12">
-        <QuoteForm />
-      </div>
-    </Container>
+      <Container>
+        <div className="max-w-2xl py-12">
+          <QuoteForm />
+        </div>
+      </Container>
+    </>
   );
 }

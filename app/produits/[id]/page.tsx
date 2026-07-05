@@ -48,7 +48,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     <Container>
       <JsonLd data={productJsonLd(product)} />
       <div className="grid grid-cols-1 gap-12 py-12 lg:grid-cols-2">
-        <ProductGallery category={product.category} images={product.images} />
+        <ProductGallery category={product.category} productName={product.name} images={product.images} />
 
         <div>
           <p className="text-sm font-medium tracking-wide text-primary uppercase">{product.category}</p>

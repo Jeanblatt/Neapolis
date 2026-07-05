@@ -42,6 +42,12 @@ Copier `.env.example` en `.env.local` et adapter :
 - `types/` — types TypeScript partagés
 - `lib/` — constantes, helpers (WhatsApp, SEO, affichage produit)
 
+## Remplacer les contenus visuels (sans toucher au code)
+
+- **Logo** : remplacer `public/logo.svg` par votre propre fichier, en gardant le même nom et si possible un ratio 1:1 (utilisé en 32x32 dans l'en-tête).
+- **Favicon** : remplacer `app/favicon.ico` (convention de fichier Next.js, prise en compte automatiquement).
+- **Photos produits** : déposer les fichiers dans `public/products/` (ex. `public/products/laptop-1.jpg`), puis référencer ce chemin dans le tableau `images` du produit correspondant dans `services/dataService.ts` (ex. `images: ["/products/laptop-1.jpg"]`). Tant qu'un produit n'a pas de chemin d'image réel, une icône de catégorie s'affiche automatiquement à la place — aucun composant à modifier.
+
 ## Déploiement (hébergement Node.js)
 
 Le projet est configuré en `output: "standalone"` (voir `next.config.ts`), adapté à un hébergement Node.js classique (VPS, Topnet, etc.) sans dépendre de Vercel.

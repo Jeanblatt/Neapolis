@@ -1,5 +1,6 @@
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 import ProductCard from "@/components/products/ProductCard";
 import { getProducts } from "@/services/dataService";
 
@@ -14,8 +15,10 @@ export default async function FeaturedProductsSection() {
       subtitle="Une sélection de notre catalogue, mise à jour régulièrement."
     >
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {featuredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {featuredProducts.map((product, index) => (
+          <Reveal key={product.id} delay={index * 60} className="h-full">
+            <ProductCard product={product} />
+          </Reveal>
         ))}
       </div>
       <div className="mt-10 text-center">

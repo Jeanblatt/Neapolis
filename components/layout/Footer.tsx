@@ -6,9 +6,10 @@ import { CONTACT_INFO, NAV_LINKS, OPENING_HOURS, SITE_NAME } from "@/lib/constan
 
 export default function Footer() {
   return (
-    <footer className="border-t border-black/10 dark:border-white/10">
+    <footer className="relative border-t border-black/10 dark:border-white/10">
+      <div className="absolute top-0 right-0 left-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       <Container>
-        <div className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="text-lg font-semibold tracking-tight">{SITE_NAME}</p>
             <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
@@ -17,11 +18,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold">Navigation</p>
-            <ul className="mt-3 flex flex-col gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <p className="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-500">
+              Navigation
+            </p>
+            <ul className="mt-4 flex flex-col gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-primary">
+                  <Link href={link.href} className="transition-colors hover:text-primary">
                     {link.label}
                   </Link>
                 </li>
@@ -30,26 +33,30 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold">Contact</p>
-            <ul className="mt-3 flex flex-col gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <p className="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-500">
+              Contact
+            </p>
+            <ul className="mt-4 flex flex-col gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-primary" />
+                <Phone aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" />
                 {CONTACT_INFO.phone}
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-primary" />
+                <Mail aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" />
                 {CONTACT_INFO.email}
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 shrink-0 text-primary" />
+                <MapPin aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" />
                 {CONTACT_INFO.address}
               </li>
             </ul>
           </div>
 
           <div>
-            <p className="text-sm font-semibold">Horaires</p>
-            <ul className="mt-3 flex flex-col gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <p className="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-500">
+              Horaires
+            </p>
+            <ul className="mt-4 flex flex-col gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
               {OPENING_HOURS.map((slot) => (
                 <li key={slot.days} className="flex justify-between gap-4">
                   <span>{slot.days}</span>

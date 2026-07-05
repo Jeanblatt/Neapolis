@@ -9,9 +9,9 @@ export default function ServiceCard({ service }: { service: ServiceItem }) {
   const whatsappMessage = whatsappMessages.service(service.title);
 
   return (
-    <Card className="flex flex-col">
-      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-primary/20">
-        {Icon && <Icon className="h-5 w-5" />}
+    <Card className="group flex h-full flex-col">
+      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white dark:bg-primary/20">
+        {Icon && <Icon aria-hidden="true" className="h-5 w-5" />}
       </div>
       <h3 className="mt-4 font-semibold">{service.title}</h3>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{service.description}</p>
