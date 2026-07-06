@@ -13,9 +13,9 @@ export const metadata: Metadata = buildMetadata({
 export default async function ProduitsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string }>;
+  searchParams: Promise<{ category?: string; q?: string }>;
 }) {
-  const [products, categories, { category }] = await Promise.all([
+  const [products, categories, { category, q }] = await Promise.all([
     getProducts(),
     getCategories(),
     searchParams,
@@ -23,7 +23,7 @@ export default async function ProduitsPage({
 
   return (
     <Section eyebrow="Catalogue" title="Produits" subtitle="Notre sélection de matériel informatique.">
-      <ProductsExplorer products={products} categories={categories} initialCategory={category} />
+      <ProductsExplorer products={products} categories={categories} initialCategory={category} initialQuery={q} />
     </Section>
   );
 }

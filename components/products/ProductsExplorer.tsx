@@ -11,12 +11,14 @@ export default function ProductsExplorer({
   products,
   categories,
   initialCategory,
+  initialQuery,
 }: {
   products: Product[];
   categories: Category[];
   initialCategory?: string;
+  initialQuery?: string;
 }) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery ?? "");
   const [category, setCategory] = useState(initialCategory ?? "all");
   const [sort, setSort] = useState<SortOption>("name");
 
