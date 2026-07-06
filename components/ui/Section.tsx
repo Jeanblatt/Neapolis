@@ -16,7 +16,11 @@ export default function Section({
   title?: string;
   subtitle?: string;
 }) {
-  const backgroundClasses = background === "muted" ? "bg-zinc-50 dark:bg-zinc-900/40" : "";
+  // Semi-transparent + `backdrop-blur` : le fond ambiant global (voir AmbientBackground)
+  // reste visible en teinte à travers toute la section, tout en gardant assez de
+  // contraste pour le texte grâce au voile clair/sombre déjà appliqué sur ce fond.
+  const backgroundClasses =
+    background === "muted" ? "bg-zinc-50/70 backdrop-blur-sm dark:bg-zinc-900/70" : "bg-background/60 backdrop-blur-sm";
 
   return (
     <section className={`py-16 sm:py-20 ${backgroundClasses} ${className}`}>

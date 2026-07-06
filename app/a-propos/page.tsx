@@ -19,7 +19,7 @@ export default function AProposPage() {
         description={`${SITE_NAME}, votre partenaire informatique de confiance en Tunisie.`}
       />
       <Container>
-        <div className="flex max-w-2xl flex-col gap-6 py-12 text-zinc-600 dark:text-zinc-400">
+        <div className="flex max-w-2xl flex-col gap-6 rounded-3xl bg-background/65 px-6 py-12 text-zinc-600 shadow-premium backdrop-blur-sm sm:px-10 dark:text-zinc-400">
           <p>
             {SITE_NAME} accompagne particuliers et professionnels dans le choix, l&apos;installation et
             l&apos;entretien de leur matériel informatique. Notre équipe conseille sur les ordinateurs

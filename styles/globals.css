@@ -1,8 +1,19 @@
 @import "tailwindcss";
 
+/*
+ * Thème sombre permanent : le site n'a pas de bascule clair/sombre, seul le
+ * `prefers-color-scheme` du système faisait varier le rendu — ce qui donnait
+ * une identité incohérente entre appareils (ex. mobile en dark OS vs desktop
+ * en light OS). On fige donc `--background`/`--foreground` sur les valeurs
+ * sombres, et on force la variante `dark:` à toujours s'appliquer (au lieu de
+ * dépendre du média `prefers-color-scheme`) pour que les ~20 fichiers qui
+ * l'utilisent (Card, Section, Footer, etc.) rendent un thème unique partout.
+ */
+@custom-variant dark (&);
+
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -13,13 +24,6 @@
   --color-primary-light: #60a5fa;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {

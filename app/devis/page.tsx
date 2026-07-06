@@ -19,7 +19,7 @@ export default function DevisPage() {
         description="Décrivez votre besoin, nous revenons vers vous rapidement."
       />
       <Container>
-        <div className="max-w-2xl py-12">
+        <div className="max-w-2xl rounded-3xl bg-background/65 px-6 py-12 shadow-premium backdrop-blur-sm sm:px-10">
           <QuoteForm />
         </div>
       </Container>

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SkipLink from "@/components/layout/SkipLink";
+import AmbientBackground from "@/components/layout/AmbientBackground";
 import WhatsAppFloatingButton from "@/components/ui/WhatsAppFloatingButton";
 import JsonLd from "@/components/seo/JsonLd";
 import { organizationJsonLd } from "@/lib/json-ld";
@@ -46,7 +47,8 @@ export default function RootLayout({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      <body className="relative flex min-h-full flex-col">
+        <AmbientBackground />
         <noscript>
           <style>{".reveal{opacity:1 !important;transform:none !important;}"}</style>
         </noscript>

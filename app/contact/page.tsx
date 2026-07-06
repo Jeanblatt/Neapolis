@@ -19,7 +19,7 @@ export default function ContactPage() {
     <>
       <PageHero eyebrow="Nous contacter" title="Contact" description="Une question ? Contactez-nous." />
       <Container>
-        <div className="grid grid-cols-1 gap-12 py-12 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-12 rounded-3xl bg-background/65 px-6 py-12 shadow-premium backdrop-blur-sm sm:px-10 lg:grid-cols-2">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4 text-zinc-600 dark:text-zinc-400">
               <p className="flex items-center gap-3">

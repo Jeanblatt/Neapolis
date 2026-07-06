@@ -17,7 +17,7 @@ export default function PageHero({
   const isCentered = align === "center";
 
   return (
-    <div className="relative overflow-hidden border-b border-black/10 bg-mesh dark:border-white/10">
+    <div className="relative overflow-hidden border-b border-black/10 bg-background/60 bg-mesh backdrop-blur-sm dark:border-white/10">
       <Container>
         <div className={`py-16 sm:py-20 ${isCentered ? "text-center" : ""}`}>
           <div className={isCentered ? "mx-auto max-w-2xl" : "max-w-2xl"}>

@@ -6,7 +6,7 @@ import { CONTACT_INFO, NAV_LINKS, OPENING_HOURS, SITE_NAME, SOCIAL_LINKS } from 
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-black/10 dark:border-white/10">
+    <footer className="relative border-t border-black/10 bg-background/65 backdrop-blur-sm dark:border-white/10">
       <div className="absolute top-0 right-0 left-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       <Container>
         <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-5">
